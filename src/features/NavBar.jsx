@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../assets/images/logo.svg'
 import { Container, makeStyles } from "@material-ui/core";
 const useStyles=makeStyles((theme)=>({
     root:{
@@ -14,6 +15,9 @@ const useStyles=makeStyles((theme)=>({
         [theme.breakpoints.down('sm')]:{
             height:86,
         }
+    },
+    brand:{
+        width:112
     }
 }))
 function NavBar(props) {
@@ -21,7 +25,9 @@ const classes=useStyles()
     return (
         <div className={classes.Navbar}>
             <Container fixed className={classes.root}>
-                Hamza
+                <div className={classes.brand}>
+<img src={logo} alt="brandLogo"/>
+                </div>
             </Container>
         </div>
     );

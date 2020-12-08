@@ -4,12 +4,8 @@ import DehazeIcon from '@material-ui/icons/Dehaze';
 import CloseIcon from '@material-ui/icons/Close';
 import { Container, makeStyles } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
+
     root: {
-        [theme.breakpoints.up("lg")]: {
-            maxWidth: '1200px !important'
-        }
-    },
-    Navbar: {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -18,6 +14,9 @@ const useStyles = makeStyles((theme) => ({
         },
         [theme.breakpoints.down('sm')]: {
             height: 86,
+        },
+        [theme.breakpoints.up("lg")]: {
+            maxWidth: '1200px !important'
         }
     },
     mobilemenu: {
@@ -25,58 +24,82 @@ const useStyles = makeStyles((theme) => ({
             display: 'none'
         },
         [theme.breakpoints.down('sm')]: {
-            display: 'block'
+            display: 'flex',
+            justifyContent:'center',
+            alignItems:'center'
         }
     },
     brand: {
-        width: 112
-    },
-    mainMenu: {
-        [theme.breakpoints.up('sm')]: {
-            display: 'flex',
-            justifyContent: 'space-between',
-
-        },
-        [theme.breakpoints.down('sm')]: {
-            display: 'none'
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center',
+        width: 112,
+        [theme.breakpoints.down('sm')]:{
+            width:66
         }
     },
     manueCenter: {
         listStyleType: 'none',
         display: 'flex',
-        padding:0,
-        margin:0,
-        '&>li,&>li>a': {
+        padding: 0,
+        margin: 0,
+        [theme.breakpoints.down('sm')]: {
+            display: 'none'
+        },
+        '&>li>a': {
             fontSize: '15px',
             fontWeight: 'bold',
             color: "rgba(255,255,255,0.7)",
-            textDecoration:'none',
-            marginLeft:23,
-            marginRight:23
+            textDecoration: 'none',
+            [theme.breakpoints.up('sm')]:{
+                marginLeft: 23,
+            marginRight: 23
+            },
+            [theme.breakpoints.down('sm')]:{
+                marginLeft: 0,
+            marginRight: 0
+            }
+            
         }
     },
     manueRight: {
         listStyleType: 'none',
         display: 'flex',
-        padding:0,
-        margin:0,
-        '&>li,&>li>a': {
+        padding: 0,
+        margin: 0,
+        '&>li>a': {
             fontSize: '15px',
             fontWeight: 'bold',
             color: "rgba(255,255,255,1)",
-            textDecoration:'none',
-            marginLeft:23,
-            marginRight:23
+            textDecoration: 'none',
+            [theme.breakpoints.up('sm')]:{
+                marginLeft: 23,
+            marginRight: 23
+            },
+            [theme.breakpoints.down('sm')]:{
+                marginLeft: 0,
+            marginRight: 0
+            }
         }
     },
-    btn:{
-        padding:'10px 13px',
-        borderRadius:25,
+    btn: {
+        padding: '10px 13px',
+        borderRadius: 25,
         backgroundColor: "rgba(255,255,255,.4)",
-'&:hover':{
-    backgroundColor: "rgba(255,255,255,.6)",
+        '&:hover': {
+            backgroundColor: "rgba(255,255,255,.6)",
 
-}
+        }
+    },
+    displayMobile:{
+        [theme.breakpoints.up('sm')]:{
+            display:'none'
+        }
+    },
+    HideMobile:{
+        [theme.breakpoints.down('sm')]:{
+            display:'none'
+        }
     }
 }))
 function NavBar(props) {
@@ -86,47 +109,49 @@ function NavBar(props) {
         setmenuOpt(menuOpt === true ? false : true)
     }
     return (
-        <div className={classes.root}>
-            <Container fixed className={classes.Navbar}>
-                <div className={classes.brand}>
-                    <img src={logo} alt="brandLogo" />
-                </div>
-                <div className={classes.mainMenu}>
-                    <ul className={classes.manueCenter}>
-                        <li>
-                            <a href="!#">
-                                Enterprise
+        <Container fixed className={classes.root}>
+             <div onClick={manueOpener} className={classes.mobilemenu}>
+                {menuOpt ?<CloseIcon />:<DehazeIcon />}
+            </div>
+            <div className={classes.brand}>
+                <img src={logo} width='100%' alt="brandLogo" />
+            </div>
+                <ul className={classes.manueCenter}>
+                    <li>
+                        <a href="!#">
+                            Enterprise
     </a>
-                        </li>
-                        <li>
-                            <a href="!#">
-                                Pricing
+                    </li>
+                    <li>
+                        <a href="!#">
+                            Pricing
     </a>
-                        </li>
-                        <li>
-                            <a href="!#">
-                                Blog
+                    </li>
+                    <li>
+                        <a href="!#">
+                            Blog
     </a>
-                        </li>
-                    </ul>
-                    <ul className={classes.manueRight}>
-                        <li>
-                            <a href="!#">
-                                Sign in
+                    </li>
+                    <li className={classes.displayMobile}>
+                        <a href="!#">
+                            Sign in
     </a>
-                        </li>
-                        <li>
-                            <a href="!#" className={classes.btn}>
-                                Sign up for free
+                    </li>
+                </ul>
+                <ul className={classes.manueRight}>
+                    <li className={classes.HideMobile}>
+                        <a href="!#">
+                            Sign in
     </a>
-                        </li>
-                    </ul>
-                </div>
-                <div onClick={manueOpener} className={classes.mobilemenu}>
-                    {menuOpt ? <DehazeIcon /> : <CloseIcon />}
-                </div>
-            </Container>
-        </div>
+                    </li>
+                    <li>
+                        <a href="!#" className={classes.btn}>
+                            Sign up for free
+    </a>
+                    </li>
+                </ul>
+           
+        </Container>
     );
 }
 

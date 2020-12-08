@@ -5,7 +5,8 @@ import Home from './features/Home';
 const useStyles=makeStyles(()=>({
   root:{
     backgroundColor:'#181818',
-    color:'white'
+    color:'white',
+    fontFamily:'Roboto',
   }
 }))
 function App(props) {

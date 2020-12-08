@@ -1,17 +1,19 @@
 import React from 'react';
-import { makeStyles } from "@material-ui/core";
-const useStyles=makeStyles(()=>({
+import { Container, makeStyles } from "@material-ui/core";
+const useStyles=makeStyles((theme)=>({
     root:{
-        width:'100%'
+        [theme.breakpoints.up("lg")]:{
+            maxWidth:'1200px !important'
+        }
     }
 }))
 
 function Home(props) {
     const classes=useStyles();
     return (
-        <div>
-            Home
-        </div>
+        <Container fixed className={classes.root} >
+Hamza
+        </Container>
     );
 }
 

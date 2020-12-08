@@ -1,4 +1,5 @@
 import React from 'react';
+import NavBar from './NavBar';
 import { Container, makeStyles } from "@material-ui/core";
 const useStyles=makeStyles((theme)=>({
     root:{
@@ -11,9 +12,12 @@ const useStyles=makeStyles((theme)=>({
 function Home(props) {
     const classes=useStyles();
     return (
+        <>
+        <NavBar/>
         <Container fixed className={classes.root} >
 Hamza
         </Container>
+        </>
     );
 }
 

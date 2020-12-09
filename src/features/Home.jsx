@@ -1,6 +1,8 @@
 import React from 'react';
 import NavBar from './NavBar';
 import { Container, makeStyles } from "@material-ui/core";
+import Header from './Header';
+import Section from './Section';
 const useStyles=makeStyles((theme)=>({
     root:{
         [theme.breakpoints.up("lg")]:{
@@ -14,8 +16,9 @@ function Home(props) {
     return (
         <>
         <NavBar/>
+        <Header/>
         <Container fixed className={classes.root} >
-Hamza
+<Section/>
         </Container>
         </>
     );

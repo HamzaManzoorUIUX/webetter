@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import logo from '../assets/images/logo.svg'
+import NavDrewer from '../components/NavDrewer'
 import DehazeIcon from '@material-ui/icons/Dehaze';
 import CloseIcon from '@material-ui/icons/Close';
 import { Container, makeStyles } from "@material-ui/core";
@@ -20,6 +21,10 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     mobilemenu: {
+        backgroundColor:'#8C8C8C',
+        width:34,
+        height:34,
+        borderRadius:'50%',
         [theme.breakpoints.up('sm')]: {
             display: 'none'
         },
@@ -112,6 +117,7 @@ function NavBar(props) {
         <Container fixed className={classes.root}>
              <div onClick={manueOpener} className={classes.mobilemenu}>
                 {menuOpt ?<CloseIcon />:<DehazeIcon />}
+                {menuOpt?<NavDrewer/>:<></>}
             </div>
             <div className={classes.brand}>
                 <img src={logo} width='100%' alt="brandLogo" />
@@ -146,7 +152,7 @@ function NavBar(props) {
                     </li>
                     <li>
                         <a href="!#" className={classes.btn}>
-                            Sign up for free
+                            Sign up<span className={classes.HideMobile}> for free</span>
     </a>
                     </li>
                 </ul>

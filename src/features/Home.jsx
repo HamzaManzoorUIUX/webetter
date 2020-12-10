@@ -3,6 +3,7 @@ import NavBar from './NavBar';
 import { Container, makeStyles } from "@material-ui/core";
 import Header from './Header';
 import Section from './Section';
+import Footer from './Footer';
 const useStyles=makeStyles((theme)=>({
     root:{
         [theme.breakpoints.up("lg")]:{
@@ -20,6 +21,7 @@ function Home(props) {
         <Container fixed className={classes.root} >
 <Section/>
         </Container>
+        <Footer/>
         </>
     );
 }

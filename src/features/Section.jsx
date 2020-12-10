@@ -7,6 +7,7 @@ import BoldImg from '../assets/images/Bold.svg';
 import ItalicImg from '../assets/images/italic.svg';
 import paperClip from '../assets/images/paper-clip.svg';
 import ChatImg from '../assets/images/ChatImg.svg';
+import GridFour from '../assets/images/GridFour.svg';
 
 const useStyles = makeStyles((theme) => ({
     heading: {
@@ -281,6 +282,19 @@ function Section(props) {
 
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
                                 </p>
+                        </div>
+                    </div>
+                    <div className={`${classes.Grid} ${classes.mt_10}`}>
+                        <div className={classes.GridBox}>
+                            <h3 className={classes.GridHeading}>
+                            Lorem ipsum dolor sit amet, consectetur
+    </h3>
+                            <p className={classes.GridParagraphTwo}>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+</p>
+                            <div>
+                                <img src={GridFour} width='100%' alt="ChatImg" />
+                            </div>
                         </div>
                     </div>
                 </Grid>

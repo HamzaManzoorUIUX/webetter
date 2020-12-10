@@ -41,7 +41,6 @@ function MyCarosal(props) {
   const theme = useTheme();
   const matchessm = useMediaQuery(theme.breakpoints.down('sm'));
   const matchesmd = useMediaQuery(theme.breakpoints.down('md'));
-  const matcheslg = useMediaQuery(theme.breakpoints.down('lg'));
   const settings = {
     dots: false,
     infinite: true,
@@ -51,21 +50,21 @@ function MyCarosal(props) {
     autoplay: true,
     arrows: false,
   };
+const changeMySetting=()=>{
+  if (matchessm === false && matchesmd === false&&settings.slidesToShow !== 4) {
+    settings.slidesToShow = 4
+    
+  }
+  else if (matchessm === false && matchesmd === true&&settings.slidesToShow !== 3) {
+    settings.slidesToShow = 3
+  }
+  else if (matchessm === true && matchesmd === true&&settings.slidesToShow !== 2) {
+    settings.slidesToShow = 2
+  }
+  setmySetting(settings)
 
-  useEffect(() => {
-    if (matchessm === false && matchesmd === false) {
-      settings.slidesToShow = 4
-      setmySetting(settings)
-    }
-    else if (matchessm === false && matchesmd === true) {
-      settings.slidesToShow = 3
-      setmySetting(settings)
-    }
-    else if (matchessm === true && matchesmd === true) {
-      settings.slidesToShow = 2
-      setmySetting(settings)
-    }
-  }, [matchessm, matcheslg, matchesmd])
+}
+  useEffect(changeMySetting, [matchessm, matchesmd])
   return (
     <div className={classes.root}>
       <div className={classes.shadow}>
